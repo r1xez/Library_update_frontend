@@ -48,7 +48,13 @@ const BooksList = ({ books, authors, onDelete, onUpdate, canEdit = true }) => {
   };
 
   const handleSave = async () => {
-    if (!editData.title || !editData.authorId || !editData.publishYear || !editData.isbn || !editData.price) {
+    if (
+      !editData.title ||
+      !editData.authorId ||
+      !editData.publishYear ||
+      !editData.isbn ||
+      !editData.price
+    ) {
       alert("Please fill in all required fields");
       return;
     }
@@ -113,7 +119,8 @@ const BooksList = ({ books, authors, onDelete, onUpdate, canEdit = true }) => {
             >
               <option value="all">All authors</option>
               {authors.map((author) => {
-                const authorLabel = `${author.firstName} ${author.lastName}`.trim();
+                const authorLabel =
+                  `${author.firstName} ${author.lastName}`.trim();
                 return (
                   <option key={author.id} value={authorLabel}>
                     {authorLabel}
@@ -137,7 +144,6 @@ const BooksList = ({ books, authors, onDelete, onUpdate, canEdit = true }) => {
         </div>
       </div>
 
-      
       {isModalOpen && canEdit && (
         <div className="modal-overlay" onClick={handleCloseModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -186,31 +192,29 @@ const BooksList = ({ books, authors, onDelete, onUpdate, canEdit = true }) => {
                   placeholder="Enter publish year"
                 />
               </div>
-            
-              </div>
-              <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  step="0.01"
-                  value={editData.price}
-                  onChange={handleInputChange}
-                  placeholder="Enter price"
-                />
-              </div>
             </div>
-            <div className="modal-footer">
-              <button className="btn-cancel" onClick={handleCloseModal}>
-                Cancel
-              </button>
-              <button className="btn-save" onClick={handleSave}>
-                Save Changes
-              </button>
+            <div className="form-group">
+              <label htmlFor="price">Price</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                step="0.01"
+                value={editData.price}
+                onChange={handleInputChange}
+                placeholder="Enter price"
+              />
             </div>
           </div>
-        
+          <div className="modal-footer">
+            <button className="btn-cancel" onClick={handleCloseModal}>
+              Cancel
+            </button>
+            <button className="btn-save" onClick={handleSave}>
+              Save Changes
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

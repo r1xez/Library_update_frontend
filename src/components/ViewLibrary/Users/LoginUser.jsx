@@ -34,7 +34,7 @@ export const LoginUser = ({ onClose, onSuccess }) => {
       const token = payload?.accessToken || payload?.AccessToken || null;
       const role = formData.email === "admin@gmail.com" ? "admin" : "user";
       if (onSuccess) {
-        onSuccess({ email: formData. email, token, role });
+        onSuccess({ email: formData.email, token, role });
       }
       if (token) {
         localStorage.setItem("accessToken", token);

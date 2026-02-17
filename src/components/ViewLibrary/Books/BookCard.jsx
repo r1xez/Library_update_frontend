@@ -13,7 +13,9 @@ const BookCard = ({ book, onDelete, onEdit, canEdit = true }) => {
           </div>
           <div className="card-body">
             <div>
-              <p className="author-row">Author: {book.authorName || "Unknown"}</p>
+              <p className="author-row">
+                Author: {book.authorName || "Unknown"}
+              </p>
               <div className="meta-row">
                 <span>Year: {book.publishYear || book.year || "N/A"}</span>
                 <span className="isbn">ISBN:{book.isbn}</span>

@@ -46,7 +46,10 @@ export const RegisterUser = ({ onClose, onSuccess }) => {
       }
     } catch (error) {
       console.error("Error registering user:", error);
-      if (error?.message && error.message.toLowerCase().includes("already exist")) {
+      if (
+        error?.message &&
+        error.message.toLowerCase().includes("already exist")
+      ) {
         alert("User already exists. Please login instead.");
       } else {
         alert("Failed to register user. Please try again.");
@@ -90,10 +93,10 @@ export const RegisterUser = ({ onClose, onSuccess }) => {
           onChange={handleChange}
           autoComplete="new-password"
         />
-         <label className="auth-label" htmlFor="register-password">
-          Confirm Password          
+        <label className="auth-label" htmlFor="register-password">
+          Confirm Password
         </label>
-         <input
+        <input
           id="confirm-password"
           className="auth-input"
           type="password"

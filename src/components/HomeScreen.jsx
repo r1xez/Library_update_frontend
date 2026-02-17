@@ -68,7 +68,11 @@ export const HomeScreen = ({ authUser, onAuthSuccess, onLogout }) => {
           <div className="auth-corner">
             {isAdmin && <span className="auth-role-badge">Admin</span>}
             <span className="auth-email-top">{authUser.email}</span>
-            <button className="corner-button" type="button" onClick={handleCornerClick}>
+            <button
+              className="corner-button"
+              type="button"
+              onClick={handleCornerClick}
+            >
               <img src={enterIcon} alt={authUser ? "Logout" : "Login"} />
             </button>
           </div>
@@ -84,7 +88,7 @@ export const HomeScreen = ({ authUser, onAuthSuccess, onLogout }) => {
             </div>
           </nav>
         )}
-        
+
         <div className="welcome-text">
           <p>Welcome to the Library Management System!</p>
         </div>
@@ -102,15 +106,21 @@ export const HomeScreen = ({ authUser, onAuthSuccess, onLogout }) => {
               Login
             </button>
           </div>
-        )} 
+        )}
         {(showRegister || showLogin) && (
           <div className="modal-overlay" onClick={closeModals}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               {showRegister && (
-                <RegisterUser onClose={closeModals} onSuccess={handleAuthSuccess} />
+                <RegisterUser
+                  onClose={closeModals}
+                  onSuccess={handleAuthSuccess}
+                />
               )}
               {showLogin && (
-                <LoginUser onClose={closeModals} onSuccess={handleAuthSuccess} />
+                <LoginUser
+                  onClose={closeModals}
+                  onSuccess={handleAuthSuccess}
+                />
               )}
             </div>
           </div>
